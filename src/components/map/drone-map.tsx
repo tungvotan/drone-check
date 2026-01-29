@@ -33,8 +33,9 @@ export function DroneMap({
   });
 
   // Airspace tile layer URL (OpenAIP)
+  // OpenAIP provides combined map tiles with airspace overlay
   const airspaceTileUrl = OPENAIP_KEY
-    ? `https://api.tiles.openaip.net/api/data/airspaces/{z}/{x}/{y}.png?apiKey=${OPENAIP_KEY}`
+    ? `https://api.tiles.openaip.net/api/data/openaip/{z}/{x}/{y}.png?apiKey=${OPENAIP_KEY}`
     : null;
 
   const handleMarkerClick = useCallback(
