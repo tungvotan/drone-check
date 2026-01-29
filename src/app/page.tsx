@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useLocation } from "@/hooks/use-location";
 import { useGoNoGo } from "@/hooks/use-go-no-go";
 import { useWeather } from "@/hooks/use-weather";
@@ -7,15 +8,17 @@ import { VerdictDisplay } from "@/components/go-no-go/verdict-display";
 import { FactorBreakdown } from "@/components/go-no-go/factor-breakdown";
 import { WeatherCard } from "@/components/weather/weather-card";
 import { ForecastStrip } from "@/components/weather/forecast-strip";
+import { FlightTimePicker } from "@/components/go-no-go/flight-time-picker";
 
 export default function HomePage() {
   const { coordinates, isLoading: locationLoading, error: locationError } = useLocation();
+  const [selectedTime, setSelectedTime] = useState<Date>(new Date());
 
   const {
     data: goNoGoData,
     isLoading: goNoGoLoading,
     error: goNoGoError,
-  } = useGoNoGo(coordinates?.latitude, coordinates?.longitude);
+  } = useGoNoGo(coordinates?.latitude, coordinates?.longitude, "G", selectedTime);
 
   const {
     data: weatherData,
@@ -103,6 +106,9 @@ export default function HomePage() {
 
   return (
     <div className="px-4 py-6 space-y-6">
+      {/* Flight Time Picker */}
+      <FlightTimePicker selectedTime={selectedTime} onTimeChange={setSelectedTime} />
+
       {/* Verdict Display */}
       <VerdictDisplay
         verdict={goNoGoData?.overall || "go"}

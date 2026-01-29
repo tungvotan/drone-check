@@ -12,11 +12,20 @@ interface GoNoGoResponse extends GoNoGoResult {
 async function fetchGoNoGo(
   latitude: number,
   longitude: number,
-  airspaceClass: string = "G"
+  airspaceClass: string = "G",
+  checkTime?: Date
 ): Promise<GoNoGoResponse> {
-  const response = await fetch(
-    `/api/go-no-go?lat=${latitude}&lng=${longitude}&airspace=${airspaceClass}`
-  );
+  const params = new URLSearchParams({
+    lat: latitude.toString(),
+    lng: longitude.toString(),
+    airspace: airspaceClass,
+  });
+
+  if (checkTime) {
+    params.append("time", checkTime.toISOString());
+  }
+
+  const response = await fetch(`/api/go-no-go?${params.toString()}`);
   if (!response.ok) {
     throw new Error("Failed to evaluate conditions");
   }
@@ -26,11 +35,12 @@ async function fetchGoNoGo(
 export function useGoNoGo(
   latitude?: number,
   longitude?: number,
-  airspaceClass: string = "G"
+  airspaceClass: string = "G",
+  checkTime?: Date
 ) {
   return useQuery({
-    queryKey: ["go-no-go", latitude, longitude, airspaceClass],
-    queryFn: () => fetchGoNoGo(latitude!, longitude!, airspaceClass),
+    queryKey: ["go-no-go", latitude, longitude, airspaceClass, checkTime?.toISOString()],
+    queryFn: () => fetchGoNoGo(latitude!, longitude!, airspaceClass, checkTime),
     enabled: latitude !== undefined && longitude !== undefined,
     staleTime: 5 * 60 * 1000, // 5 minutes
     gcTime: 30 * 60 * 1000, // 30 minutes

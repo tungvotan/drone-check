@@ -13,6 +13,7 @@ export interface EvaluationInput {
   airspaceClass?: string;
   sunrise: string;
   sunset: string;
+  checkTime?: Date;
 }
 
 /**
@@ -21,6 +22,7 @@ export interface EvaluationInput {
  */
 export function evaluateGoNoGo(input: EvaluationInput): GoNoGoResult {
   const factors: FactorResult[] = [];
+  const now = input.checkTime || new Date();
 
   // 1. Wind Speed
   const windVerdict = evaluateThreshold(
