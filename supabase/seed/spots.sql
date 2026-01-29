@@ -59,4 +59,23 @@ INSERT INTO spots (name, slug, description, latitude, longitude, state, type, ne
 -- ACT
 ('Canberra Model Aircraft Club', 'canberra-model-aircraft-club', 'Capital region club with well-maintained facilities.', -35.3333, 149.1000, 'ACT', 'maaa_club', 20.0, 'G', ARRAY['parking', 'toilet', 'shade', 'power'], 'Cold winters but excellent year-round flying. Near controlled airspace - check altitude.', 'https://www.maaa.asn.au'),
 
-('Jerrabomberra Wetlands', 'jerrabomberra-wetlands', 'Urban park suitable for micro quads and small drones.', -35.3167, 149.1500, 'ACT', 'park', 8.0, 'G', ARRAY['parking', 'toilet', 'seating'], 'Stay away from wildlife. Small drones only - very public area.', NULL);
+('Jerrabomberra Wetlands', 'jerrabomberra-wetlands', 'Urban park suitable for micro quads and small drones.', -35.3167, 149.1500, 'ACT', 'park', 8.0, 'G', ARRAY['parking', 'toilet', 'seating'], 'Stay away from wildlife. Small drones only - very public area.', NULL),
+
+-- COMMUNITY FAVORITES (Unofficial)
+-- Sydney
+('Sydney Park St Peters', 'sydney-park-st-peters', 'Massive inner-city park with rolling hills. Favorite for sub-250g FPV.', -33.9069, 151.1833, 'NSW', 'park', 4.0, 'G', ARRAY['parking', 'toilet', 'seating', 'water', 'shade'], 'Just outside Sydney Airport 5.5km zone. Check OpenSky app religiously. Busy on weekends.', NULL),
+
+('Warriewood Valley Sportsground', 'warriewood-valley', 'Northern Beaches sportsground with large flat fields away from coastal crowds.', -33.6845, 151.2842, 'NSW', 'park', 35.0, 'G', ARRAY['parking', 'toilet', 'water'], 'Popular with local FPV groups. Avoid during organized sports.', NULL),
+
+-- Brisbane
+('The Common Coorparoo', 'the-common-coorparoo', 'The "Home of Brisbane FPV". Dedicated area frequently used for racing and freestyle.', -27.4984, 153.0565, 'QLD', 'park', 12.0, 'G', ARRAY['parking', 'shade', 'seating'], 'Gold standard for legal urban flying. Meet locals here on weekends.', NULL),
+
+('Minnippi Parklands', 'minnippi-parklands', 'Massive BCC-designated drone park with huge open spaces.', -27.4856, 153.1115, 'QLD', 'park', 10.0, 'G', ARRAY['parking', 'toilet', 'shade', 'water'], 'Great for long range testing or speed runs. Safe distance from public.', NULL),
+
+-- Melbourne
+('Royal Park Parkville', 'royal-park-parkville', 'Huge inner-city park with multiple open ovals.', -37.7915, 144.9495, 'VIC', 'park', 15.0, 'G', ARRAY['parking', 'toilet', 'shade', 'water'], 'Hub for Melbourne drone enthusiasts. Check for events/sports before flying.', NULL),
+
+-- Perth
+('Sir James Mitchell Park', 'sir-james-mitchell-park', 'Riverside park with spectacular CBD skyline views.', -31.9745, 115.8672, 'WA', 'park', 10.0, 'G', ARRAY['parking', 'toilet', 'shade', 'water'], 'Popular for cinematic FPV. Watch for heliport approach paths over river.', NULL),
+
+('Point Walter Reserve', 'point-walter-reserve', 'Famous sand spit extending into Swan River. Scenic and legal.', -32.0116, 115.7878, 'WA', 'park', 15.0, 'G', ARRAY['parking', 'toilet', 'shade', 'water'], 'City of Melville allows drones in most parks. Amazing sunset spot.', NULL);
