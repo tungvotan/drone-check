@@ -29,7 +29,8 @@ export interface OpenMeteoResponse {
   timezone: string;
 }
 
-const OPEN_METEO_BOM_URL = "https://api.open-meteo.com/v1/bom";
+// Use standard Open-Meteo forecast API (more reliable than BOM endpoint)
+const OPEN_METEO_URL = "https://api.open-meteo.com/v1/forecast";
 
 export async function fetchWeather(
   latitude: number,
@@ -62,7 +63,7 @@ export async function fetchWeather(
     forecast_days: "1",
   });
 
-  const response = await fetch(`${OPEN_METEO_BOM_URL}?${params}`, {
+  const response = await fetch(`${OPEN_METEO_URL}?${params}`, {
     next: { revalidate: 900 }, // 15 minutes
   });
 
