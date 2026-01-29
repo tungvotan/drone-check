@@ -85,7 +85,6 @@ export function evaluateGoNoGo(input: EvaluationInput): GoNoGoResult {
   // 5. Daylight
   const sunriseTime = new Date(input.sunrise);
   const sunsetTime = new Date(input.sunset);
-  const now = new Date();
   const minutesToSunset = (sunsetTime.getTime() - now.getTime()) / (1000 * 60);
   const isCurrentlyDaylight = now >= sunriseTime && now <= sunsetTime;
   const daylightVerdict = evaluateDaylightFromTimes(isCurrentlyDaylight, minutesToSunset);

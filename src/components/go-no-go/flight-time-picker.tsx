@@ -88,7 +88,6 @@ export function FlightTimePicker({ selectedTime, onTimeChange }: FlightTimePicke
           <div className="grid grid-cols-4 gap-2">
             {timeOptions.map((time, index) => {
               const isSelected = time.getTime() === selectedTime.getTime();
-              const isCurrentHour = isNow(time);
               const daytime = isDaytime(time);
 
               return (

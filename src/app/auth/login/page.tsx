@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { AuthButton } from "@/components/auth/auth-button";
 
@@ -60,12 +61,12 @@ export default function LoginPage() {
 
         {/* Skip option */}
         <div className="text-center pt-4">
-          <a
+          <Link
             href="/"
             className="text-sm text-gray-500 hover:text-gray-400"
           >
             Continue without signing in →
-          </a>
+          </Link>
         </div>
       </div>
     </div>

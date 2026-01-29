@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useSpots } from "@/hooks/use-spots";
-import { useLocation } from "@/hooks/use-location";
 import { SpotCard } from "@/components/spots/spot-card";
 import { SpotFilters } from "@/components/spots/spot-filters";
 import type { AustralianState, SpotType } from "@/types";
@@ -13,7 +12,6 @@ export default function SpotsPage() {
     type: SpotType | null;
   }>({ state: null, type: null });
 
-  const { coordinates } = useLocation();
   const { data: spots = [], isLoading, error } = useSpots(
     filters.state || filters.type
       ? { state: filters.state, type: filters.type, maxDistance: null, amenities: [] }

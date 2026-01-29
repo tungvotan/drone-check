@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useAppStore } from "@/store/app-store";
 import { createClient } from "@/lib/supabase/client";
@@ -60,10 +61,13 @@ export default function SettingsPage() {
             <div className="p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 {user.user_metadata.avatar_url && (
-                  <img
+                  <Image
                     src={user.user_metadata.avatar_url}
                     alt=""
-                    className="w-10 h-10 rounded-full"
+                    width={40}
+                    height={40}
+                    className="rounded-full"
+                    unoptimized
                   />
                 )}
                 <div>
